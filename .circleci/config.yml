@@ -5,7 +5,7 @@ orbs:
 jobs:
   build-and-test:
     docker:
-      - image: bikeimage:latest
+      - image: rachelsjsu/cs218:latest
         auth:
           username: rachelsjsu
           password: dckr_pat_RsCzynytoHdYhdDvxvhT5TTaaQM
