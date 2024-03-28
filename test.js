@@ -1,14 +1,16 @@
-const axios =require('axios');
+const request = require('supertest');
+const app = require('./app');
 
-const host = process.env.HOST || 'http://172.17.0.1:5500';
 
 describe('HTTP page status', ()=>{
     test('index.html load ok', async()=>{
-        const res = await axios.get('${host}/index.html');
-        expect(res.status).toBe(200);
+        const res = await request(app).get('/index.html');
+        expect(res.statusCode).toBe(200);
+        expect(res.headers['content-type']).toContain('text/html');
     });
     test('upload.html load ok', async()=>{
-        const res = await axios.get('${host}/upload.html');
-        expect(res.status).toBe(200);
+        const res = await request(app).get('/upload.html');
+        expect(res.statusCode).toBe(200);
+        expect(res.headers['content-type']).toContain('text/html');
     });
 });
