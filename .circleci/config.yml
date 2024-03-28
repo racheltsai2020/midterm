@@ -1,14 +1,14 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@2.1.1
-
-
+  python: circleci/docker@1.0.0
 jobs:
   build-and-test:
     docker:
-      - image: bikeimage:tag
-      working_directory: /app
+      - image: bikeimage:latest
+        auth:
+          username: rachelsjsu
+          password: dckr_pat_RsCzynytoHdYhdDvxvhT5TTaaQM
           
     steps:
       - checkout
@@ -20,7 +20,7 @@ jobs:
           command: npm start &
       - run:
           name: Run tests
-          command: |
+          command: 
             npm test
 workflows:
   sample: 
