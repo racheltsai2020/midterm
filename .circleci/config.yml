@@ -15,6 +15,9 @@ jobs:
           name: Install dependencies
           command: npm install
       - run:
+          name: Start server
+          command: npm start &
+      - run:
           name: Run tests
           command: npm test
 workflows:
