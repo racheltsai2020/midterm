@@ -9,16 +9,15 @@ workflows:
     - build-and-test:
         docker:
           - image: circleci/node:14
-
+          
         steps:
           - checkout
           - run:
               name: Install dependencies
               command: npm install
           - run:
-            name: Run tests
-            command: npm test
-
+             name: Run tests
+             command: npm test
 workflows:
   sample: 
     jobs:
