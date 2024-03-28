@@ -8,10 +8,16 @@
 </html>
 <body>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <h1> Upload image for e-bike company </h1>
+    <h2>Please first choose the File you want to upload before you press the upload Image button</h2>
     <input type="file" id="input">
-    <button onclick="uploadImage()">UploadImage</button>
-    <button id="loginButton">Login</button>
-    <button id="logoutButton">Logout</button>
+    <div>
+        <button onclick="uploadImage()">Upload Image</button>
+    </div>
+    <div>  
+        <button id="loginButton">Login</button>
+        <button id="logoutButton">Logout</button>
+    </div>
     <script src="app.js"></script>
 
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
