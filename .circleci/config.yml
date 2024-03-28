@@ -9,7 +9,7 @@ jobs:
         auth:
           username: rachelsjsu
           password: dckr_pat_RsCzynytoHdYhdDvxvhT5TTaaQM
-          
+     executor: python/default     
     steps:
       - checkout
       - run:
