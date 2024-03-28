@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   python: circleci/docker@1.0.0
+
 jobs:
   build-and-test:
     docker:
@@ -9,17 +10,18 @@ jobs:
         auth:
           username: rachelsjsu
           password: dckr_pat_RsCzynytoHdYhdDvxvhT5TTaaQM
-     executor: python/default     
+          
     steps:
       - checkout
       - run:
           name: Install dependencies
           command: npm install
       - run:
-          name: Run tests
-          command:  |
+          name: Run tests in Docker container
+          command: |
             docker run rachelsjsu/cs218:latest npm test
+
 workflows:
-  sample: 
+  sample:
     jobs:
       - build-and-test
