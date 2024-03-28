@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            export SERVER_HOST=http://localhost:${PORT:-5500}
+            export SERVER_HOST=http://localhost:${PORT:-80}
             npm test
 workflows:
   sample: 
