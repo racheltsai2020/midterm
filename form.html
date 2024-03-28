@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Upload image for e-bike compnay </title>
+    </head>
+</html>
+<body>
+    <input type="file" id="input">
+    <button onclick="uploadImage()">UploadImage</button>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
+    <script>
+        AWS.config.update({
+            accessKeyId: 'ACCESS_KEY_ID',
+            secretAccessKey: 'SECRET_ACCESS_KEY',
+            region: 'us-west-1'
+        });
+
+        var s3 = new AWS.S3();
+
+        function uploadImage(){
+            var input = document.getElementById('input');
+            var file = input.files[0];
+
+            if(!file){
+                alert('No file was uploaded or the file was invalid');
+                return;
+            }
+
+            var parm = {
+                Bucket: 'cs218midterm',
+                Key: file.name,
+                Body: file,
+            };
+
+            s3.upload(parm, function(err,data){
+                if(err){
+                    console.error('Error', err);
+                    return;
+                }
+                console.log('Image uploaded. URL', data.Location);
+                alert('Image upload Successfully');
+            });
+
+            
+        }
+    </script>
+</body>
