@@ -1,6 +1,6 @@
 const axios =require('axios');
 
-const host = process.env.HOST || 'http://localhost:3000';
+const host = process.env.HOST || 'http://localhost:80';
 
 describe('HTTP page status', ()=>{
     test('index.html load ok', async()=>{
