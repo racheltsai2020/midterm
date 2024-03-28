@@ -7,7 +7,8 @@ orbs:
 jobs:
   build-and-test:
     docker:
-      - image: circleci/node:14
+      - image: bikeimage:tag
+      working_directory: /app
           
     steps:
       - checkout
@@ -20,7 +21,6 @@ jobs:
       - run:
           name: Run tests
           command: |
-            export SERVER_HOST=http://localhost:${PORT:-80}
             npm test
 workflows:
   sample: 

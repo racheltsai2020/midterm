@@ -20,10 +20,6 @@ const updateUI = async () => {
 };
 
 const login = async () => {
-  if(!auth0Client){
-    console.error('Auth0 client not initialized yet');
-    return;
-  }
     await auth0Client.loginWithRedirect({
       authorizationParams: {
         redirect_uri: `${window.location.origin}/upload.html`
@@ -32,10 +28,7 @@ const login = async () => {
 };
 
 const logout = () => {
-  if(!auth0Client){
-    console.error('Auth0 client not initialized yet');
-    return;
-  }
+  
     auth0Client.logout({
       logoutParams: {
         returnTo: `${window.location.origin}/index.html`
@@ -61,26 +54,16 @@ window.onload = async () => {
     }
 };
 
-const loginBut = document.getElementById('loginButton');
-if(loginBut){
-  loginBut.addEventListener('click',function(){login();});
-};
+document.getElementById('loginButton').addEventListener('click',function(){login();});
 
-const logoutBut = document.getElementById('logoutButton');
-if(logoutBut){
-  logoutBut.addEventListener('click',function(){logout();});
-};
 
-const uploadBut = document.getElementById('uploadButton');
-if(uploadBut){
-  uploadBut.addEventListener('click',function(){uploadImage();});
-};
+document.getElementById('logoutButton').addEventListener('click',function(){logout();});
+
+document.getElementById('uploadButton').addEventListener('click',function(){uploadImage();});
 
 function uploadImage(){
     var input = document.getElementById('input');
-    if(input.files[0] != null){
-      var file = input.files[0];
-    }
+    var file = input.files[0];
     
 
     if(!file){
@@ -104,10 +87,5 @@ function uploadImage(){
     });
 }
 
-module.exports = {
-  login,
-  logout,
-  uploadImage
-};
 
             
