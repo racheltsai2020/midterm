@@ -11,6 +11,8 @@ jobs:
           username: rachelsjsu
           password: dckr_pat_RsCzynytoHdYhdDvxvhT5TTaaQM
           
+    executor: python/default  # Using Python executor as an example, you can replace it with your preferred executor
+
     steps:
       - checkout
       - run:
